@@ -10,9 +10,12 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
     <TagsInput
       v-model:tags="tags"
       v-slot="{ tag, removeTag, inputBindings, inputEventHandlers }"
-      class="tags-input"
     >
-        <span v-for="tag in tags" class="tags-input-tag bg-purple-200 text-purple-900">
+      <div class="tags-input">
+        <span
+          v-for="tag in tags"
+          class="tags-input-tag bg-purple-200 text-purple-900"
+        >
           <span>{{ tag }}</span>
           <button
             type="button"
@@ -30,6 +33,7 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
           class="tags-input-text"
           placeholder="Add tag..."
         />
+      </div>
     </TagsInput>
   </div>
 </template>
