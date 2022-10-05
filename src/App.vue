@@ -8,10 +8,10 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
 <template>
   <div class="p-4">
     <TagsInput v-model:tags="tags">
-      <template #tag="props">
+      <template #tag="{tag, removeTag}">
         <span class="tags-input-tag">
-          <span>{{ props.tag }}</span>
-          <button type="button" @click="props.removeTag(props.tag)" class="tags-input-remove">
+          <span>{{ tag }}</span>
+          <button type="button" @click="removeTag(tag)" class="tags-input-remove">
             &times;
           </button>
         </span>
