@@ -6,18 +6,19 @@ const emit = defineEmits(["update:tags"]);
 
 const newTag = ref("");
 
-const handleTagBackspace = (e) => {
+const handleTagBackspace = () => {
   if (newTag.value.length === 0) {
     emit("update:tags", props.tags.slice(0, -1));
   }
 };
 
-const addTag = (e) => {
+const addTag = () => {
   if (newTag.value.length === 0 || props.tags.includes(newTag.value)) {
     return;
   }
   emit("update:tags", [...props.tags, newTag.value]);
   newTag.value = "";
+  console.log(newTag.value);
 };
 
 const removeTag = (tag) => {
@@ -30,6 +31,17 @@ const removeTag = (tag) => {
 const onInput = (e) => {
   newTag.value = e.target.value;
 };
+
+const onKeyDown = (e) => {
+    if (e.keyCode === 8) {
+        handleTagBackspace();
+    }
+
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        addTag();
+    }
+}
 </script>
 
 <template>
@@ -43,9 +55,10 @@ const onInput = (e) => {
 
     <slot name="input"
     :new-tag="newTag" 
-    :on-input="onInput"
-    :add-tag="addTag"
-    :handle-tag-backspace="handleTagBackspace"
+    :event-handlers="{
+        input: onInput,
+        keydown: onKeyDown,
+    }"
     ></slot>
   </div>
 </template>

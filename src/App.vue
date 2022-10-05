@@ -21,16 +21,14 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
         </span>
       </template>
 
-      <template #input="{ newTag, onInput, handleTagBackspace, addTag }">
+      <template #input="{ newTag, eventHandlers }">
         <input
         type="text"
         class="tags-input-text"
         placeholder="Add tag..."
-        @keydown.backspace="handleTagBackspace"
-        @keydown.enter.prevent="addTag"
 
         :value="newTag"
-        @input="onInput"
+        v-on="eventHandlers"
         />
       </template>
     </TagsInput>
