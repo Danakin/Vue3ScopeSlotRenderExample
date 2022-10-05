@@ -33,15 +33,15 @@ const onInput = (e) => {
 };
 
 const onKeyDown = (e) => {
-    if (e.keyCode === 8) {
-        handleTagBackspace();
-    }
+  if (e.keyCode === 8) {
+    handleTagBackspace();
+  }
 
-    if (e.keyCode === 13) {
-        e.preventDefault();
-        addTag();
-    }
-}
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    addTag();
+  }
+};
 </script>
 
 <template>
@@ -53,12 +53,13 @@ const onKeyDown = (e) => {
       :remove-tag="removeTag"
     ></slot>
 
-    <slot name="input"
-    :new-tag="newTag" 
-    :event-handlers="{
+    <slot
+      name="input"
+      :bindings="{ value: newTag }"
+      :event-handlers="{
         input: onInput,
         keydown: onKeyDown,
-    }"
+      }"
     ></slot>
   </div>
 </template>
