@@ -45,7 +45,7 @@ const onKeyDown = (e) => {
 </script>
 
 <template>
-  <div class="tags-input">
+  <div>
     <slot
         :tags="tags"
         :remove-tag="removeTag"
