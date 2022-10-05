@@ -13,15 +13,18 @@ const handleTagBackspace = (e) => {
 };
 
 const addTag = (e) => {
-    if (newTag.value.length === 0 || props.tags.includes(newTag.value)){
-        return;
-    }
-    emit('update:tags', [...props.tags, newTag.value]);
-    newTag.value = '';
+  if (newTag.value.length === 0 || props.tags.includes(newTag.value)) {
+    return;
+  }
+  emit("update:tags", [...props.tags, newTag.value]);
+  newTag.value = "";
 };
 
 const removeTag = (tag) => {
-    emit('update:tags', props.tags.filter(t => t !== tag));
+  emit(
+    "update:tags",
+    props.tags.filter((t) => t !== tag)
+  );
 };
 </script>
 
@@ -34,7 +37,12 @@ const removeTag = (tag) => {
       </button>
     </span> -->
 
-    <slot name="tag" v-for="tag in tags" :tag="tag"></slot>
+    <slot
+      name="tag"
+      v-for="tag in tags"
+      :tag="tag"
+      :remove-tag="removeTag"
+    ></slot>
 
     <input
       type="text"
@@ -48,11 +56,11 @@ const removeTag = (tag) => {
 </template>
 
 <style>
-    .tags-input {
-        @apply border rounded p-2 flex flex-wrap gap-2;
-    }
+.tags-input {
+  @apply border rounded p-2 flex flex-wrap gap-2;
+}
 
-    .tags-input-tag {
-        @apply p-2 border border-blue-600 bg-blue-100 text-blue-900;
-    }
+.tags-input-tag {
+  @apply p-2 border border-blue-600 bg-blue-100 text-blue-900;
+}
 </style>

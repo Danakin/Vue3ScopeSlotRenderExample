@@ -11,7 +11,7 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
       <template #tag="props">
         <span class="tags-input-tag">
           <span>{{ props.tag }}</span>
-          <button type="button" @click="removeTag(props.tag)" class="tags-input-remove">
+          <button type="button" @click="props.removeTag(props.tag)" class="tags-input-remove">
             &times;
           </button>
         </span>
