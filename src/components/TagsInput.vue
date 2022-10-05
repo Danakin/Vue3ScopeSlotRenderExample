@@ -41,8 +41,11 @@ const onInput = (e) => {
       :remove-tag="removeTag"
     ></slot>
 
-    <slot name="input" 
+    <slot name="input"
     :new-tag="newTag" 
-    :on-input="onInput"></slot>
+    :on-input="onInput"
+    :add-tag="addTag"
+    :handle-tag-backspace="handleTagBackspace"
+    ></slot>
   </div>
 </template>

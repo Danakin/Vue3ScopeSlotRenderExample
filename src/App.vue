@@ -21,7 +21,7 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
         </span>
       </template>
 
-      <template #input="{ newTag, onInput }">
+      <template #input="{ newTag, onInput, handleTagBackspace, addTag }">
         <input
         type="text"
         class="tags-input-text"
