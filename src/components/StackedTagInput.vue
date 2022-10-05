@@ -8,7 +8,7 @@ const tags = ref(["asdf", "wsdf", "esdf"]);
 <template>
   <TagsInput
     v-model:tags="tags"
-    v-slot="{ tag, removeTag, inputBindings, inputEventHandlers }"
+    v-slot="{ removeTag, inputBindings, inputEventHandlers }"
   >
     <div class="p-4 border rounded flex flex-col gap-4">
       <input
