@@ -43,3 +43,9 @@ const removeTag = (tag) => {
     />
   </div>
 </template>
+
+<style>
+    .tags-input {
+        @apply border rounded p-2 flex flex-wrap gap-2;
+    }
+</style>

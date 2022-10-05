@@ -8,7 +8,7 @@ import TagsInput from './components/TagsInput.vue';
 </script>
 
 <template>
-  <div>
+  <div class="p-4">
     <TagsInput v-model:tags="tags" />
   </div>
 </template>
