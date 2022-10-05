@@ -47,19 +47,13 @@ const onKeyDown = (e) => {
 <template>
   <div class="tags-input">
     <slot
-      name="tag"
-      v-for="tag in tags"
-      :tag="tag"
-      :remove-tag="removeTag"
-    ></slot>
-
-    <slot
-      name="input"
-      :bindings="{ value: newTag }"
-      :event-handlers="{
-        input: onInput,
-        keydown: onKeyDown,
-      }"
+        :tags="tags"
+        :remove-tag="removeTag"
+        :input-bindings="{ value: newTag }"
+        :input-event-handlers="{
+          input: onInput,
+          keydown: onKeyDown,
+        }"
     ></slot>
   </div>
 </template>
