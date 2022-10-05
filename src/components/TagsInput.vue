@@ -27,12 +27,15 @@ const removeTag = (tag) => {
 
 <template>
   <div class="tags-input">
-    <span v-for="tag in tags" class="tags-input-tag">
+    <!-- <span v-for="tag in tags" class="tags-input-tag">
       <span>{{ tag }}</span>
       <button type="button" @click="removeTag(tag)" class="tags-input-remove">
         &times;
       </button>
-    </span>
+    </span> -->
+
+    <slot name="tag" v-for="tag in tags" :tag="tag"></slot>
+
     <input
       type="text"
       class="tags-input-text"
