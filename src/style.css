@@ -1,3 +1,17 @@
+.tags-input {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.tags-input-tag {
+    padding: 0.5rem;
+    border: 1px solid #336688;
+    background-color: #99CCFF;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

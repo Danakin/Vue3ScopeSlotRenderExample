@@ -26,17 +26,14 @@ const removeTag = (tag) => {
     props.tags.filter((t) => t !== tag)
   );
 };
+
+const onInput = (e) => {
+  newTag.value = e.target.value;
+};
 </script>
 
 <template>
   <div class="tags-input">
-    <!-- <span v-for="tag in tags" class="tags-input-tag">
-      <span>{{ tag }}</span>
-      <button type="button" @click="removeTag(tag)" class="tags-input-remove">
-        &times;
-      </button>
-    </span> -->
-
     <slot
       name="tag"
       v-for="tag in tags"
@@ -44,23 +41,8 @@ const removeTag = (tag) => {
       :remove-tag="removeTag"
     ></slot>
 
-    <input
-      type="text"
-      class="tags-input-text"
-      placeholder="Add tag..."
-      @keydown.backspace="handleTagBackspace"
-      @keydown.enter.prevent="addTag"
-      v-model="newTag"
-    />
+    <slot name="input" 
+    :new-tag="newTag" 
+    :on-input="onInput"></slot>
   </div>
 </template>
-
-<style>
-.tags-input {
-  @apply border rounded p-2 flex flex-wrap gap-2;
-}
-
-.tags-input-tag {
-  @apply p-2 border border-blue-600 bg-blue-100 text-blue-900;
-}
-</style>
